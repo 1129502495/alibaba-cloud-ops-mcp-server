@@ -29,10 +29,10 @@ def main(transport: str, port: int):
     )
     for tool in oos_tools.tools:
         mcp.add_tool(tool)
-    for tool in cms_tools.tools:
-        mcp.add_tool(tool)
-    for tool in oss_tools.tools:
-        mcp.add_tool(tool)
+    # for tool in cms_tools.tools:
+    #     mcp.add_tool(tool)
+    # for tool in oss_tools.tools:
+    #     mcp.add_tool(tool)
     api_tools.create_api_tools(mcp, config)
 
     # Initialize and run the server

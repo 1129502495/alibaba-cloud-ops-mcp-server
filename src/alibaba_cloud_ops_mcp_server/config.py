@@ -8,12 +8,12 @@ config = {
     'ecs': [
         'DescribeInstances',
         'DescribeRegions',
-        'DescribeZones',
-        'DescribeAccountAttributes',
+        # 'DescribeZones',
+        # 'DescribeAccountAttributes',
         'DescribeAvailableResource',
         'DescribeImages',
         'DescribeSecurityGroups',
-        'DeleteInstances'
+        # 'DeleteInstances'
     ],
     'Vpc': [
         'DescribeVpcs',
