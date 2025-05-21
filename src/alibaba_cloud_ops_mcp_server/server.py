@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 def main(transport: str, port: int):
     # Create an MCP server
     mcp = FastMCP(
-        name="alibaba-cloud-ops-mcp-server",
+        name="my-alibaba-cloud-ops-mcp-server",
         port=port
     )
     for tool in oos_tools.tools:
