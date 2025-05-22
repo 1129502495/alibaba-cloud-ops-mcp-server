@@ -1,6 +1,6 @@
 [project]
-name = "alibaba-cloud-ops-mcp-server"
-version = "0.8.6"
+name = "my-alibaba-cloud-ops-mcp-server"
+version = "0.8.8"
 description = "A MCP server for Alibaba Cloud"
 readme = "README.md"
 authors = [
@@ -27,4 +27,4 @@ dependencies = [
 packages = ["src/alibaba_cloud_ops_mcp_server"]
 
 [project.scripts]
-alibaba-cloud-ops-mcp-server = "alibaba_cloud_ops_mcp_server:main"
+my-alibaba-cloud-ops-mcp-server = "alibaba_cloud_ops_mcp_server:main"
