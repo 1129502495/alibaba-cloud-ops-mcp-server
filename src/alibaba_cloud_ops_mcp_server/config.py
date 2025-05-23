@@ -14,14 +14,15 @@ config = {
         'DescribeImages',
         'DescribeSecurityGroups',
         # 'DeleteInstances'
+        'DescribeInstanceTypes'
     ],
     'Vpc': [
         'DescribeVpcs',
         'DescribeVSwitches'
     ],
-    'rds': [
-        'DescribeDBInstances'
-    ],
+    # 'rds': [
+    #     'DescribeDBInstances'
+    # ],
 }
 
 
