@@ -135,15 +135,18 @@ def RebootInstances(
 
 @tools.append
 def RunInstances(
-    RegionId: str = Field(description='AlibabaCloud region ID', default='cn-hangzhou'),
-    ImageId: str = Field(description='Image ID'),
-    InstanceType: str = Field(description='Instance Type'),
+    RegionId: str = Field(description='实例所属的地域 ID。您可以调用 DescribeRegions 查看最新的阿里云地域列表。', default='cn-hangzhou'),
+    ImageId: str = Field(description='镜像 ID，启动实例时选择的镜像资源。您可以通过 DescribeImages 查询为指定的实例规格查询可以使用的镜像。'),
+    InstanceType: str = Field(description='实例的资源规格。产品选型：调用 DescribeInstanceTypes 查看目标实例规格的性能数据。查询库存：调用 DescribeAvailableResource 查看指定地域或者可用区内的资源供给情况。'),
     SecurityGroupId: str = Field(description='SecurityGroup ID'),
-    VSwitchId: str = Field(description='VSwitch ID'),
+    VSwitchId: str = Field(description='虚拟交换机 ID。安全组和虚拟交换机必须在同一个专有网络 VPC 中。并且每一个虚拟交换机ID都属于一个可用区ZoneId，一旦确定了虚拟交换机ID，也就意味着确定了可用区ZoneId。'),
     Amount: int = Field(description='Number of ECS instances', default=1),
-    InstanceName: str = Field(description='Instance Name', default=''),
+    InstanceName: str = Field(description='Instance Name', default='auto-generated-by-mcp-server'),
 ):
-    """批量创建ECS实例，适用于需要同时创建多台ECS实例的场景，例如应用部署和高可用性场景。"""
+    """批量创建ECS实例，适用于需要同时创建多台ECS实例的场景，例如应用部署和高可用性场景。创建时需要注意以下几点：
+    1. 创建的实例的SecurityGroup必须和VSwitch在同一个专有网络Vpc下。
+    2. 创建的实例的资源规格必须在对应的可用区ZoneId下可用。
+    3. 创建的实例数量不能超过当前地域的资源限制。"""
 
     parameters = {
         'imageId': ImageId,
